@@ -340,7 +340,8 @@ class SpireEnv(gym.Env):
                         reward = 10 #we won
                         log("VICTORY")
                     else:
-                        reward = -2
+                        pass
+                        #reward = -2
 
                 if self.done:
                     log("done by 2\n") #because a game over is detected before the agent does actions
@@ -451,11 +452,7 @@ log("Creating neural network")
 
 model = Sequential()
 model.add(Flatten(input_shape=(1,) + spireEnv.observation_space.shape))            #512 -> 256
-model.add(Dense(128))
-model.add(Activation('relu'))
-model.add(Dense(64))
-model.add(Activation('relu'))
-model.add(Dense(32))
+model.add(Dense(8))
 model.add(Activation('relu'))
 model.add(Dense(nb_actions))
 model.add(Activation('relu'))
